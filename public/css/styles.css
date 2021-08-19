@@ -33,3 +33,19 @@
 	font-size: 12px;
   color: #fff;
 }
+
+form * {
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+}
+
+textarea {
+  height: 150px;
+}
+
+button {
+  margin: 2rem 0;
+}

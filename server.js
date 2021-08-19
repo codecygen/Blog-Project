@@ -15,8 +15,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-app.get("/", function(req, res){
-  res.render(__dirname + "/views/home.ejs", {homeStartingContent: homeStartingContent});
+let postArray = [];
+
+app.get('/', function(req, res){
+  res.render(__dirname + "/views/home.ejs", {homeStartingContent: homeStartingContent, postArray: postArray});
 });
 
 app.get("/about", function(req, res) {
@@ -29,6 +31,18 @@ app.get("/contact", function(req, res) {
 
 app.get("/compose", function(req, res) {
   res.render(__dirname + "/views/compose.ejs");
+});
+
+app.post('/', function(req, res) {
+  let post = {
+    title: req.body.postTitle,
+    content: req.body.postBody
+  };
+
+  postArray.push(post);
+
+  res.redirect('/');
+
 });
 
 

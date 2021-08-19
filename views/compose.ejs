@@ -3,8 +3,11 @@
 
 <h1>Compose</h1>
 <form action="/" method="post">
-  <input type="text" name="title">
-  <button type="submit" name="btn">Publish</button>
+  <label for="title">Title</label>
+  <input type="text" name="postTitle" autocomplete="off">
+  <label for="post">Post</label>
+  <textarea name="postBody" autocomplete="off"></textarea>
+  <button type="submit" name="btn" class="btn btn-primary">Publish</button>
 </form>
 
 <!-- This section is for footer.ejs -->

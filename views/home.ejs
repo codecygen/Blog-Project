@@ -3,6 +3,10 @@
 
 <h1>Home</h1>
 <p><%= homeStartingContent %></p>
+<% postArray.forEach((element) => { %>
+  <h1><%= element.title %></h1>
+  <p><%= element.content %></p>
+<% }); %>
 
 <!-- This section is for footer.ejs -->
 <%- include("../views/partials/footer.ejs") %>
