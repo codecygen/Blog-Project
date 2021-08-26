@@ -63,6 +63,9 @@ app.get('/posts/:postName', function(req, res) {
 
     if(requestedTitle === storedTitle) {
       console.log('Match found!');
+      const blogTitle = postArray[i].title;
+      const blogContent = postArray[i].content;
+      res.render(__dirname + "/views/post.ejs", {blogTitle: blogTitle, blogContent: blogContent});
       break;
     } else if (requestedTitle !== storedTitle && i === totalPost - 1) {
       console.log('No match found!');

@@ -4,8 +4,13 @@
 <h1>Home</h1>
 <p><%= homeStartingContent %></p>
 <% postArray.forEach((element) => { %>
+  <% let blogClickLink = ''; %>
+  <% blogClickLink = element.title.replace(/\s+/g, '-').toLowerCase(); %>
+  <% blogClickLink = '/posts/' + blogClickLink; %>
   <h1><%= element.title %></h1>
-  <p><%= element.content %></p>
+  <p><%= element.content.substring(0, 100) + ' ...' %>
+    <a href=<%= blogClickLink %>>Read More</a>
+  </p>
 <% }); %>
 
 <!-- This section is for footer.ejs -->
