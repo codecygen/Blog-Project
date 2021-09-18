@@ -81,6 +81,13 @@ app.post('/', function(req, res) {
     content: req.body.postBody
   });
 
+  const saveData = () => {
+    return new Promise((res) => {
+        newPost.save();
+        res();
+    });
+  };
+
   const findData = () => {
     return new Promise((res, rej) => {
       blogPost.find((err, allPostsObj) => {
@@ -108,7 +115,7 @@ app.post('/', function(req, res) {
   };
 
   const dbSaveShow = async () => {
-    await newPost.save();
+    await saveData();
     await findData();
   };
 
